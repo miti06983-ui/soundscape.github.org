@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@layer components {
+  :root {
+    --brand-primary: #2dd4bf;
+    --brand-secondary: #f59e0b;
+    --brand-warm: #fb7185;
+    --bg-deep: #070908;
+    --card-bg: rgba(14, 19, 18, 0.72);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+  }
+
+  body {
+    background-color: var(--bg-deep);
+    color: white;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  /* Soundscape Style Slider */
+  .soundscape-slider {
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  /* Track */
+  .soundscape-slider::-webkit-slider-runnable-track {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  .soundscape-slider:hover::-webkit-slider-runnable-track {
+    background: rgba(255, 255, 255, 0.2);
+    height: 6px;
+  }
+
+  /* Thumb (The Dot) */
+  .soundscape-slider::-webkit-slider-thumb {
+    appearance: none;
+    height: 12px;
+    width: 12px;
+    background: white;
+    border-radius: 9999px;
+    margin-top: -4px;
+    opacity: 0;
+    transition: opacity 0.2s, transform 0.2s;
+    box-shadow: -100vw 0 0 100vw var(--accent-color, var(--brand-primary));
+    cursor: pointer;
+    border: none;
+  }
+
+  .soundscape-slider:hover::-webkit-slider-thumb {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  /* Firefox Support */
+  .soundscape-slider::-moz-range-track {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+  }
+  .soundscape-slider::-moz-range-progress {
+    background: var(--accent-color, var(--brand-primary));
+    height: 4px;
+    border-radius: 9999px;
+  }
+  .soundscape-slider::-moz-range-thumb {
+    height: 12px;
+    width: 12px;
+    background: white;
+    border-radius: 9999px;
+    opacity: 0;
+    border: none;
+  }
+  .soundscape-slider:hover::-moz-range-thumb {
+    opacity: 1;
+  }
+
+  /* Custom Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    transition: background-color 0.2s;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(18px);
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.5rem;
+  }
+
+  .app-shell {
+    background:
+      linear-gradient(135deg, rgba(45, 212, 191, 0.12), transparent 34%),
+      linear-gradient(315deg, rgba(245, 158, 11, 0.08), transparent 30%),
+      #070908;
+  }
+
+  .panel-surface {
+    background: rgba(10, 14, 13, 0.76);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+  }
+
+  .mask-linear-fade {
+    mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  }
+
+  /* New Animations */
+  @keyframes floating {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-float {
+    animation: floating 6s ease-in-out infinite;
+  }
+}
